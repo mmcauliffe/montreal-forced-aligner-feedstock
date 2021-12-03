@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.0.0b7" %}
+{% set version = "2.0.0b8" %}
 
 package:
   name: {{ name }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: 58c9c842bd4a47445727c4e36f224a5d5ea768aa9dc64ccc9ea1046ec5e5750f
+  sha256: 4f890ca0dd8a5f453c89a4ec8a6ad4285df36250ccbb574d9f6187d4ebb55071
 
 build:
   number: 0
-  skip: True  # [py<38]
+  skip: True  # [py<39]
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - mfa = montreal_forced_aligner.command_line.mfa:main
@@ -43,15 +43,19 @@ requirements:
 test:
   imports:
     - montreal_forced_aligner
-    - montreal_forced_aligner.aligner
+    - montreal_forced_aligner.acoustic_modeling
+    - montreal_forced_aligner.alignment
     - montreal_forced_aligner.command_line
-    - montreal_forced_aligner.config
     - montreal_forced_aligner.corpus
-    - montreal_forced_aligner.g2p
-    - montreal_forced_aligner.lm
-    - montreal_forced_aligner.multiprocessing
-    - montreal_forced_aligner.trainers
     - montreal_forced_aligner.dictionary
+    - montreal_forced_aligner.g2p
+    - montreal_forced_aligner.ivector
+    - montreal_forced_aligner.language_modeling
+    - montreal_forced_aligner.transcription
+    - montreal_forced_aligner._version
+    - montreal_forced_aligner.abc
+    - montreal_forced_aligner.config
+    - montreal_forced_aligner.data
     - montreal_forced_aligner.exceptions
     - montreal_forced_aligner.helper
     - montreal_forced_aligner.models
