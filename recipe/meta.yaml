@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.0.0b8" %}
+{% set version = "2.0.0b9" %}
 
 package:
   name: {{ name }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: 4f890ca0dd8a5f453c89a4ec8a6ad4285df36250ccbb574d9f6187d4ebb55071
+  sha256: 57ebd48cfabe352658272c6eb8d8448eb8e998d14fd972de3f16eb9d154f1b1c
 
 build:
   number: 0
-  skip: True  # [py<39]
-  script: "{{ PYTHON }} -m pip install . -vv"
+  skip: true  # [py<39]
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mfa = montreal_forced_aligner.command_line.mfa:main
 
@@ -70,7 +70,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Forced aligner for speech to text alignment'
+  summary: Forced aligner for speech to text alignment
   description: |
     The Montreal Forced Aligner is a command line utility for performing forced alignment of speech datasets using
     Kaldi <http://kaldi-asr.org/>.
