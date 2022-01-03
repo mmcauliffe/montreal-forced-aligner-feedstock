@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.0.0b9" %}
+{% set version = "2.0.0b11" %}
 
 package:
   name: {{ name }}
@@ -7,37 +7,53 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: 57ebd48cfabe352658272c6eb8d8448eb8e998d14fd972de3f16eb9d154f1b1c
+  sha256: 32d03b0af779edd058a5078fa18d6958649178781bee485524cd4fff80653974
 
 build:
   number: 0
-  skip: true  # [py<39]
+  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mfa = montreal_forced_aligner.command_line.mfa:main
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - setuptools
     - setuptools_scm
     - wheel
     - python
     - pip
-  run:
-    - python
     - kaldi
     - sox
-    - openfst  # [not win]
-    - baumwelch  # [not win]
-    - ngram  # [not win]
-    - pynini  # [not win]
+    - openfst  # [not win and build_platform == target_platform]
+    - baumwelch  # [not win and build_platform == target_platform]
+    - ngram  # [not win and build_platform == target_platform]
+    - pynini  # [not win and build_platform == target_platform]
     - librosa
-    - numpy
     - tqdm
     - requests
     - colorama
+    - ansiwrap
     - pyyaml
+    - jsonlines
+    - biopython
+    - praatio
+  run:
+    - python
+    - kaldi
+    - pynini  # [not win and build_platform == target_platform]
+    - sox
+    - librosa
+    - tqdm
+    - requests
+    - colorama
+    - ansiwrap
+    - pyyaml
+    - biopython
+    - jsonlines
     - praatio
 
 test:

@@ -13,7 +13,7 @@ pin_run_as_build:
   sox:
     max_pin: x.x.x
 python:
-- 3.9.* *_cpython
+- 3.8.* *_cpython
 sox:
 - 14.4.2
 target_platform:

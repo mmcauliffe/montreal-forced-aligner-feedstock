@@ -1,11 +1,11 @@
-cdt_name:
-- cos7
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+macos_machine:
+- x86_64-apple-darwin13.4.0
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -13,8 +13,8 @@ pin_run_as_build:
   sox:
     max_pin: x.x.x
 python:
-- 3.9.* *_cpython
+- 3.8.* *_cpython
 sox:
 - 14.4.2
 target_platform:
-- linux-64
+- osx-64
