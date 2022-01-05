@@ -10,7 +10,7 @@ source:
   sha256: 32d03b0af779edd058a5078fa18d6958649178781bee485524cd4fff80653974
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -45,6 +45,9 @@ requirements:
     - python
     - kaldi
     - pynini  # [not win and build_platform == target_platform]
+    - openfst  # [not win and build_platform == target_platform]
+    - baumwelch  # [not win and build_platform == target_platform]
+    - ngram  # [not win and build_platform == target_platform]
     - sox
     - librosa
     - tqdm
