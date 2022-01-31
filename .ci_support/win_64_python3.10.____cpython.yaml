@@ -1,0 +1,16 @@
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+  sox:
+    max_pin: x.x.x
+python:
+- 3.10.* *_cpython
+sox:
+- 14.4.2
+target_platform:
+- win-64
