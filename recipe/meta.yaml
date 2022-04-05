@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.0.0rc3" %}
+{% set version = "2.0.0rc4" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: 743518e3916bd399fc40b15419e599d9978e9971f0b247226041489f01aecc63
+  sha256: 886f3492aeb1d2339b815f7a6499af167ddfe9662cd5411544b6bc343a221ddb
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -41,6 +41,8 @@ requirements:
     - jsonlines
     - biopython
     - praatio
+    - sqlalchemy
+    - dataclassy
   run:
     - python
     - kaldi
@@ -58,6 +60,8 @@ requirements:
     - biopython
     - jsonlines
     - praatio
+    - sqlalchemy
+    - dataclassy
 
 test:
   imports:
