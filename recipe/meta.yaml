@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.0.0rc5" %}
+{% set version = "2.0.0rc6" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: 8f2efd8ccca671186562d97f1b6898b285c4e0e59996d14ee8c1c564f89db913
+  sha256: 41c6794f28432c69b0c8eeaff386ce251348d34402e33789c24ecb496e21d82d
 
 build:
   number: 0
@@ -28,6 +28,7 @@ requirements:
     - pip
     - kaldi
     - sox
+    - ffmpeg
     - openfst  # [not win]
     - baumwelch  # [not win and build_platform == target_platform]
     - ngram  # [not win]
@@ -51,6 +52,7 @@ requirements:
     - baumwelch  # [not win and build_platform == target_platform]
     - ngram  # [not win]
     - sox
+    - ffmpeg
     - librosa
     - tqdm
     - requests

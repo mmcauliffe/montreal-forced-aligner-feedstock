@@ -144,12 +144,6 @@ feat_bins="""add-deltas add-deltas-sdc append-post-to-feats
            wav-to-duration multiply-vectors paste-vectors"""
 
 
-fgmm_bins="""fgmm-global-acc-stats fgmm-global-sum-accs fgmm-global-est
-           fgmm-global-merge fgmm-global-to-gmm fgmm-gselect fgmm-global-get-frame-likes
-           fgmm-global-copy fgmm-global-gselect-to-post fgmm-global-info
-           fgmm-global-acc-stats-post fgmm-global-init-from-accs"""
-
-
 fst_bins="""fstdeterminizestar
            fstrmsymbols fstisstochastic fstminimizeencoded fstmakecontextfst
            fstmakecontextsyms fstaddsubsequentialloop fstaddselfloops
@@ -284,16 +278,6 @@ rnnlm_bins="""rnnlm-get-egs rnnlm-train rnnlm-get-sampling-lm
            rnnlm-get-word-embedding rnnlm-compute-prob rnnlm-sentence-probs"""
 
 
-
-sgmm2_bins="""sgmm2-init sgmm2-gselect sgmm2-acc-stats sgmm2-est sgmm2-sum-accs
-         sgmm2-align-compiled sgmm2-est-spkvecs sgmm2-post-to-gpost
-         sgmm2-acc-stats-gpost sgmm2-latgen-faster sgmm2-est-spkvecs-gpost
-         sgmm2-rescore-lattice sgmm2-copy sgmm2-info sgmm2-est-ebw
-         sgmm2-acc-stats2 sgmm2-comp-prexform sgmm2-est-fmllr sgmm2-project
-         sgmm2-latgen-faster-parallel init-ubm"""
-
-
-
 online_bins="""online-net-client online-server-gmm-decode-faster online-gmm-decode-faster
            online-wav-gmm-decode-faster online-audio-server-decode-faster
            online-audio-client"""
@@ -318,7 +302,6 @@ if __name__ == '__main__':
     check_outputs(chain_bins)
     check_outputs(feat_bins)
     check_outputs(fst_bins)
-    check_outputs(fgmm_bins)
     check_outputs(gmm_bins)
     check_outputs(ivector_bins)
     check_outputs(kws_bins)
@@ -328,7 +311,6 @@ if __name__ == '__main__':
     check_outputs(nnet2_bins)
     check_outputs(nnet3_bins)
     check_outputs(rnnlm_bins)
-    check_outputs(sgmm2_bins)
 
     if test_cuda:
         check_outputs(cuda_decoder_bins)
