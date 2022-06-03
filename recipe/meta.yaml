@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.0.0rc7" %}
+{% set version = "2.0.0rc8" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: d7fa2900ef7a14a4d50208f2ce3bbd7ce3cc9b65445813e79146051b217f01ec
+  sha256: e445d76d8060ce8ea4d6783f3e7077d3b34cb1f747866822c3ed732f14c559d9
 
 build:
   number: 0
@@ -34,12 +34,13 @@ requirements:
     - ngram  # [not win]
     - pynini  # [not win and build_platform == target_platform]
     - librosa
+    - pysoundfile
+    - numpy
     - tqdm
     - requests
     - colorama
     - ansiwrap
     - pyyaml
-    - jsonlines
     - biopython
     - praatio
     - sqlalchemy
@@ -54,13 +55,14 @@ requirements:
     - sox
     - ffmpeg
     - librosa
+    - pysoundfile
+    - numpy
     - tqdm
     - requests
     - colorama
     - ansiwrap
     - pyyaml
     - biopython
-    - jsonlines
     - praatio
     - sqlalchemy
     - dataclassy
@@ -88,7 +90,7 @@ test:
     - montreal_forced_aligner.speaker_classifier
     - montreal_forced_aligner.textgrid
     - montreal_forced_aligner.utils
-    - montreal_forced_aligner.validator
+    - montreal_forced_aligner.validation
 
 about:
   home: https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner
