@@ -10,7 +10,7 @@ source:
   sha256: e3a09186d1836df96ab4f28db212cd95684509b2c86328bdb8aa3f9d9ebd972b
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -43,7 +43,7 @@ requirements:
     - pyyaml
     - biopython
     - praatio
-    - sqlalchemy
+    - sqlalchemy <2.0
     - dataclassy
   run:
     - python
@@ -64,7 +64,7 @@ requirements:
     - pyyaml
     - biopython
     - praatio
-    - sqlalchemy
+    - sqlalchemy <2.0
     - dataclassy
 
 test:
