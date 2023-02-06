@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
   name: {{ name }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: 033a6afdcf37715a4daab8d2817073edde8b030780e1eaeda8196b317e5a7ff8
+  sha256: a9a9d691ce5bf9eeb3b4531e5bf8609e2c7b64271f9a804bdcbbb7a376e5ac3c
 
 build:
   number: 0
   skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - mfa = montreal_forced_aligner.command_line.mfa:main
+    - mfa = montreal_forced_aligner.command_line.mfa:mfa_cli
 
 requirements:
   build:
@@ -42,7 +42,7 @@ requirements:
     - ansiwrap
     - pyyaml
     - biopython =1.79
-    - praatio
+    - praatio =6.0.0
     - sqlalchemy >=2.0
     - dataclassy
     - numba
@@ -73,7 +73,7 @@ requirements:
     - ansiwrap
     - pyyaml
     - biopython =1.79
-    - praatio
+    - praatio =6.0.0
     - sqlalchemy >=2.0
     - dataclassy
     - numba
@@ -88,6 +88,8 @@ requirements:
     - click
 
 test:
+  commands:
+    - mfa --help
   imports:
     - montreal_forced_aligner
     - montreal_forced_aligner.acoustic_modeling
