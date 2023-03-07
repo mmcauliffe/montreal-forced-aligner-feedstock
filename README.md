@@ -1,11 +1,11 @@
-About montreal-forced-aligner
-=============================
+About montreal-forced-aligner-feedstock
+=======================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/montreal-forced-aligner-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/montreal-forced-aligner-feedstock/blob/main/LICENSE.txt)
 
 Summary: Forced aligner for speech to text alignment
 
