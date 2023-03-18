@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.2.4" %}
+{% set version = "2.2.5" %}
 
 package:
   name: {{ name }}
@@ -7,56 +7,23 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: a0d0dca2490cd149e60a2a6b6fdc43c0b883f41d7f642db122ea9e6aba041536
+  sha256: 8bde1f900fe76e238ec00b7d4d975c046037013aa901a16b810f985920168727
 
 build:
   number: 0
-  skip: true  # [py<38]
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mfa = montreal_forced_aligner.command_line.mfa:mfa_cli
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - setuptools
     - setuptools_scm
-    - wheel
-    - python
+    - python >=3.8
     - pip
-    - kaldi
-    - sox
-    - ffmpeg
-    - openfst
-    - baumwelch
-    - ngram
-    - pynini
-    - librosa
-    - pysoundfile
-    - numpy
-    - tqdm
-    - requests
-    - pyyaml
-    - biopython =1.79
-    - praatio =6.0.0
-    - sqlalchemy >=2.0
-    - dataclassy
-    - numba
-    - kneed
-    - matplotlib-base
-    - seaborn
-    - pgvector
-    - pgvector-python
-    - postgresql
-    - hdbscan
-    - psycopg2
-    - click
-    - rich
-    - rich-click
   run:
-    - python
+    - python >=3.8
     - kaldi
     - pynini
     - openfst
@@ -83,7 +50,7 @@ requirements:
     - postgresql
     - hdbscan
     - psycopg2
-    - click
+    - scikit-learn
     - rich
     - rich-click
 
