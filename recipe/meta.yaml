@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "2.2.9" %}
+{% set version = "2.2.10" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Montreal Forced Aligner-{{ version }}.tar.gz
-  sha256: 8144c6e054b0f47f465a1b0ab4444642a53cf7b35cfa154ec5f022ac3edc945d
+  sha256: 2b618835be45cc64e045cc74b676390b04eeb66ee48575549769db45eb63223b
 
 build:
   number: 0
