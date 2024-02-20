@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "3.0.0a8" %}
+{% set version = "3.0.0rc1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name | replace("-", "_") }}/Montreal_Forced_Aligner-{{ version }}.tar.gz
-  sha256: c2221609bf83133b9400489c41c0dc978a5b261a3cd82b8399ef7756f1c75e06
+  sha256: cb17609be90026fbac785e1be9737083b652278c0b302d9b672956cc2b35b18c
 
 build:
   number: 0
@@ -43,8 +43,6 @@ requirements:
     - dataclassy
     - numba
     - kneed
-    - matplotlib-base
-    - seaborn
     - pgvector
     - pgvector-python
     - postgresql
@@ -54,7 +52,7 @@ requirements:
     - scikit-learn <1.3
     - rich
     - rich-click
-    - kalpy
+    - kalpy =0.6.2
 
 test:
   requires:
