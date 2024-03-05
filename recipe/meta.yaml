@@ -10,7 +10,7 @@ source:
   sha256: 215f53590dae6224f4a7da5eaf2167f67069f63a1dad1e3dfb3fdd6cb24b33cd
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -52,7 +52,7 @@ requirements:
     - scikit-learn <1.3
     - rich
     - rich-click
-    - kalpy
+    - {{ pin_compatible('kalpy', min_pin='x.x.x', max_pin='x.x.x') }}
 
 test:
   requires:
