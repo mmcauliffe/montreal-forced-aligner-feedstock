@@ -1,5 +1,5 @@
 {% set name = "montreal-forced-aligner" %}
-{% set version = "3.0.3" %}
+{% set version = "3.0.4" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name | replace("-", "_") }}/Montreal_Forced_Aligner-{{ version }}.tar.gz
-  sha256: 90103dacad26da2806657bc4bd278c4dae6628630be337f236927d015f929b89
+  sha256: 71b7b26e894c5582be899a59ccf6412b69b3485e865240dabbd75371928afb9e
 
 build:
   number: 0
@@ -52,13 +52,11 @@ requirements:
     - scikit-learn <1.3
     - rich
     - rich-click
-    - kalpy =0.6.4
+    - kalpy =0.6.4=cpu*
   run_constrained:
     - kalpy
 
 test:
-  requires:
-    - kaldi =*=cpu*
   commands:
     - mfa --help
   imports:
